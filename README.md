@@ -6,8 +6,8 @@
 > 스터디 목적 : 자연어 처리에 관해 심화 학습하면서 밑바닥부터 구현해보기
 
 <br/>
-<p align="center">
-<img src ="http://www.hanbit.co.kr/data/books/B8950212853_l.jpg" height="200px"/>
+<p align="left">
+<img src ="http://www.hanbit.co.kr/data/books/B8950212853_l.jpg" height="250px"/>
 <!-- #</p> -->
 <br/>
 
