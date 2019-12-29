@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dff60f1-a8d1-4011-b2e9-f56d447662c1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9dff60f1-a8d1-4011-b2e9-f56d447662c1" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,11 +17,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1388" />
-    <option name="height" value="813" />
-  </component>
   <component name="ProjectId" id="1VfDpsbQnnFKfmce6Z1Y7OOAKeE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -37,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -73,6 +65,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="201" y="51" key="SettingsEditor" timestamp="1577639326840">
+      <screen x="0" y="23" width="1440" height="813" />
+    </state>
+    <state x="201" y="51" key="SettingsEditor/0.23.1440.813@0.23.1440.813" timestamp="1577639326840" />
     <state x="375" y="193" width="689" height="472" key="find.popup" timestamp="1577637213627">
       <screen x="0" y="23" width="1440" height="813" />
     </state>
