@@ -1,12 +1,13 @@
 # Deep Learning from Scratch2
-# 밑바닥부터 시작하는 딥러닝 2 
+**밑바닥부터 시작하는 딥러닝 2**
 
 > 스터디 시작일자 : 2019.12.15
+
 > 스터디 목적 : 자연어 처리에 관해 심화 학습하면서 밑바닥부터 구현해보기
 
 <br/>
 <p align="center">
-<img src ="http://www.hanbit.co.kr/data/books/B8950212853_l.jpg" height="300px"/>
+<img src ="http://www.hanbit.co.kr/data/books/B8950212853_l.jpg" height="200px"/>
 <!-- #</p> -->
 <br/>
 
