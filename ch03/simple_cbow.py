@@ -3,7 +3,7 @@ sys.path.append('..')
 import numpy as np
 from common_wj.layers import MatMul, SoftmaxWithLoss
 
-class simpleCBOW:
+class SimpleCBOW:
     def __init__(self, vocab_size, hidden_size):
         V, H = vocab_size, hidden_size  # 인수로 어휘 수와 은닉층의 뉴런 수를 받는다.
 
