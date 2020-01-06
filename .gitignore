@@ -3,4 +3,4 @@
 .ipynb_checkpoints/*
 .DS_Store
 .idea/
-imgs/
+/imgs/*
