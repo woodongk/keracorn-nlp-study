@@ -124,5 +124,4 @@ def clip_grads(grads, max_norm):
         for grad in grads:
             grad *= rate
 
-def clip_grads(grads, max_norm):
-    return ;
+
