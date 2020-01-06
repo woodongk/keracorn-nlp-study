@@ -123,3 +123,6 @@ def clip_grads(grads, max_norm):
     if rate < 1:
         for grad in grads:
             grad *= rate
+
+def clip_grads(grads, max_norm):
+    return ;
