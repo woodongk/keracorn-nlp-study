@@ -152,19 +152,25 @@ class Embedding:
     def __init__(self, W):
         self.params = [W]
         self.grads = [np.zeros_like(W)]
-        self.idx = None
+        self.idx = None  # 단어 ID 인덱스를 배열로 저장, 미니배치를 고려할 때 여러개도 추출될 수 있도록 구현
 
+    # 가중치 W의 특정 행을 추출
     def forward(self, idx):
         W, = self.params
         self.idx = idx
         out = W[idx]
         return out
 
+    # 반대로 역전파에서는 반대로 출력층에서의 기울기를 W의 idx 행에 할당
     def backward(self, dout):
-        dW, = self.grads
-        dW[...] = 0
-        if GPU:
-            np.scatter_add(dW, self.idx, dout)
-        else:
-            np.add.at(dW, self.idx, dout)
+        dW, = self.grads  # 가중치 기울기 dW를 꺼낸다
+        dW[...] = 0  # dW의 형상을 유지한 채 원소만 0으로 덮어쓴다
+
+        # idx 중복을 고려하지 않은 방법
+        # dW[self.idx] = dout # 앞 층에서 전해진 기울기 dout을 idx 번째 행에 할당한다.
+
+        # idx 중복 고려 : 할당 x 더하기 !
+        # np.add.at(A,idx,B) = B를 A의 idx번째 행에 더해준다.
+        np.add.at(dW, self.idx, dout)
+
         return None
