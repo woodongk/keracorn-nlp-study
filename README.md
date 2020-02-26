@@ -68,10 +68,10 @@
 - 2020.02.13 - 2020.02.15 2박 3일 본선 in 춘천 네이버 커넥트원
 ---
 - 2020.02.13 인공지능 데이터셋 경진대회 제안서 제출  
-- 2020.02.24 1차 본선 진출! (top 10)  
+- 2020.02.24 1차 서류 평가 통과, 우수팀 10팀 선정
 ---
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTk2NjAxNTc1XX0=
+eyJoaXN0b3J5IjpbLTEyNzYzMTgzNTFdfQ==
 -->
