@@ -113,6 +113,37 @@ def convert_one_hot(corpus, vocab_size):
 
     return one_hot
 
+def most_similar(query, word_to_id, id_to_word, word_matrix, top = 5):
+    
+    # 검색어 찾기
+    if query not in word_to_id:
+        print("%s 를 찾을 수 없습니다." % query)
+        return ;
+    
+    # 검색어의 단어 벡터 꺼낸다
+    print("\n[query]" + query)
+    query_id = word_to_id[query]
+    query_vec = word_matrix[query_id]
+    
+    # 코사인 유사도 계산
+    vocab_size = len(id_to_word)
+    similarity = np.zeros(vocab_size)
+    for i in range(vocab_size):
+        similarity[i] = cos_similarity(query_vec, word_matrix[i])
+    
+    # 코사인 유사도를 기준으로 내림차순 출력
+    count = 0
+    # -1를 곱해주는 이유
+    # argsort()는 배열의 원소를 낮은 순서부터 정렬해주는 메서드
+    for i in (-1 * similarity).argsort():
+        if id_to_word[i] == query: # 자기 자신은 패스
+            continue
+        print(' %s: %s' % (id_to_word[i],similarity[i]))
+        
+        count += 1
+        if count >= top:
+            return
+
 def clip_grads(grads, max_norm):
     total_norm = 0
     for grad in grads:
@@ -124,4 +155,60 @@ def clip_grads(grads, max_norm):
         for grad in grads:
             grad *= rate
 
+def to_cpu(x):
+    import numpy
+    if type(x) == numpy.ndarray:
+        return x
+    return np.asnumpy(x)
 
+def to_gpu(x):
+    import cupy
+    if type(x) == cupy.ndarray:
+        return x
+    return cupy.asarray(x)
+
+def normalize(x):
+    ''' 배열 x 의 element 들의 value를 -1 ~ 1 사이로 정규화
+    '''
+    if x.ndim == 2:
+        s = np.sqrt((x * x).sum(1))
+        x = x.astype(np.float32) # 형 변환 처리해야 에러 안 발생
+        x /= s.reshape(s.shape[0],1)
+    elif x.ndim == 1:
+        s = np.sqrt((x * x).sum())
+        x = x.astype(np.float32)
+        x /= s
+    return x
+
+
+def analogy(a, b, c, word_to_id, id_to_word, word_matrix, top=5, answer=None):
+    ''' a : c = b : ? 유추 문제 풀기
+    e.g., man : woman = king : ? ==> woman
+    '''
+    for word in (a, b, c):
+        if word not in word_to_id:
+            print("%s(을)를 찾을 수 없습니다." % word)
+            return
+    print("\n[analogy]" + a + ":" + b + '=' + c + ":?")
+    a_vec, b_vec, c_vec = word_matrix[word_to_id[a]], word_matrix[word_to_id[b]], word_matrix[word_to_id[c]]
+    query_vec = b_vec - a_vec + c_vec
+    query_vec = normalize(query_vec)
+
+    #### 가장 유사한 벡터를 dot product 연산을 통해 구함
+    #### 유사할수록 score가 높게 나올 것이다! 유사하니까.. 정규화된 값과 곱할 경우 값이 1에 가까움
+    similarity = np.dot(word_matrix, query_vec)
+
+    if answer is not None:
+        print("==>" + answer + ":" + str(np.dot(word_matrix[word_to_id[answer]], query_vec)))
+
+    count = 0
+    for i in (-1 * similarity).argsort():
+        if np.isnan(similarity[i]):
+            continue
+        if id_to_word[i] in (a, b, c):
+            continue
+        print(' {0}: {1}'.format(id_to_word[i], similarity[i]))
+
+        count += 1
+        if count >= top:
+            return

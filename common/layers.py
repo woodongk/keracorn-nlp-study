@@ -1,6 +1,6 @@
 import numpy as np
-#from common_wj.config import GPU
-from common_wj.functions import softmax, cross_entropy_error
+#from common.config import GPU
+from common.functions import softmax, cross_entropy_error
 
 GPU = False
 

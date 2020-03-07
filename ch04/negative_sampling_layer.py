@@ -2,7 +2,7 @@
 import sys
 sys.path.append('..')
 import numpy as np
-from common_wj.layers import Embedding, SigmoidWithLoss
+from common.layers import Embedding, SigmoidWithLoss
 import collections
 
 class EmbeddingDot:

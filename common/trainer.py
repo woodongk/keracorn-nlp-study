@@ -4,7 +4,7 @@ sys.path.append('..')
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-from common_wj.util import clip_grads
+from common.util import clip_grads
 
 class Trainer:
     def __init__(self, model, optimizer):

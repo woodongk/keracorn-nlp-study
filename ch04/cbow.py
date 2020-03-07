@@ -2,7 +2,7 @@
 import sys
 sys.path.append('..')
 import numpy as np
-from common_wj.layers import Embedding
+from common.layers import Embedding
 from ch04.negative_sampling_layer import NegativeSamplingLoss
 
 
