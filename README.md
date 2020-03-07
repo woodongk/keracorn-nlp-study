@@ -28,21 +28,22 @@
 슬기, 봉영, 원익, 승주, 우정, 희아
 
 ## 스터디 일지
-**Week 1.** Ch 1. 신경망 복습
-- 스터디 시작 및 방법 논의 
-    - 각 챕터의 발제자를 정해서 오프라인 모임 때 발표 
-    - 다음 오프라인 모임까지 ch.1 ~ ch4
+**Week 1.** 스터디 시작 
+- 각 챕터의 발제자를 정해서 오프라인 모임 때 발표 
+- Ch 1. 신경망 복습 - 각자 공부 
    
-**Week 2.** Ch 2. 자연어와 단어의 분산 표현 - Ch 3. word2vec
-- ch2. SVD의 개념 심화 논의 
-    - 2-1. eigenvalue 의미?
-    - 2-2. singular vector -> 중요도 큰 값이 왜 중요한 것인가??
+**Week 2.** Chapter 2 - Chapter 3
+- Ch 2. 자연어와 단어의 분산 표현
+    - SVD의 개념 심화 논의 
+        - 2-1. eigenvalue 의미?
+        - 2-2. singular vector -> 중요도 큰 값이 왜 중요한 것인가??
+- Ch 3. word2vec
 
-**Week 3.** Ch4. word2vec 속도 개선 - Ch 5. RNN 
-- Ch 4. word2vec 속도 개선 (by. 원익)
+**Week 3.** Chapter 4 - Chapter 5 
+- Ch 4. word2vec 속도 개선
     - analogy test의 원리에 관해 심화 공부 진행
-    - Ethayarajh et al., Towards Understanding Linear Word Analogies, ACL 2019
-- Ch 5. RNN (by. 봉영)
+    - Ethayarajh et al., Towards Understanding Linear Word Analogies, ACL 209
+- Ch 5. RNN
 
 
 ---  
