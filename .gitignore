@@ -4,3 +4,5 @@
 .DS_Store
 .idea/
 스터디 발제자료/*
+.ipynb_checkpoints/
+ch03/__pycache__/
