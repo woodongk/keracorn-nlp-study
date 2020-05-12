@@ -1,6 +1,8 @@
 # Deep Learning from Scratch2
 **밑바닥부터 시작하는 딥러닝 2**
 
+> [저자 Github](https://github.com/oreilly-japan/deep-learning-from-scratch-20)
+
 > 스터디 시작일자 : 2019.12.15
 
 > 스터디 목적 : 자연어 처리에 관해 심화 학습하면서 밑바닥부터 구현해보기
