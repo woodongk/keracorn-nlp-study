@@ -1,7 +1,8 @@
 # Deep Learning from Scratch2
 **밑바닥부터 시작하는 딥러닝 2**
 
-> [저자 Github](https://github.com/oreilly-japan/deep-learning-from-scratch-20)
+> [저자 Github](https://github.com/oreilly-japan/deep-learning-from-scratch-20)   
+> [번역본 Github](https://github.com/WegraLee/deep-learning-from-scratch-2)
 
 > 스터디 시작일자 : 2019.12.15
 
