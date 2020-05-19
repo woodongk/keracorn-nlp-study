@@ -41,9 +41,9 @@ class TimeRNN:
         self.grads = [np.zeros_like(Wx), np.zeros_like(Wh), np.zeros_like(b)]
         self.layers = None  # T 개의 RNN 계층 리스트로 저장하는 용도
 
-        # h : forward() 메서드 이후 마지막 RNN 계층의 은닉상태 저장
-        # dh : backward() 메서드 이후 하나의 앞 블록의 은닉 상태의 기울기 저장
-        self.h, self.dh = None, None
+        self.h = None  # forward() 메서드 이후 마지막 RNN 계층의 은닉상태 저장
+        self.dh = None  # backward() 메서드 이후 하나의 앞 블록의 은닉 상태의 기울기 저장
+
         # True : 아무리 긴 시계열 데이터여도 순전파를 끊지 않고 전파
         # False : 은닉 상태를 영행렬 (모든 요소가 0 행렬)로 초기화
         self.stateful = stateful
