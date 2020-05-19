@@ -64,6 +64,9 @@ class Trainer:
         plt.show()
 
 
+import time
+
+
 class RnnlmTrainer:
     def __init__(self, model, optimizer):
         self.model = model
@@ -79,7 +82,7 @@ class RnnlmTrainer:
 
         data_size = len(x)
         jump = data_size // batch_size
-        offsets = [i * jump for i in range(batch_size)]  # バッチの各サンプルの読み込み開始位置
+        offsets = [i * jump for i in range(batch_size)]  # 배치에서 각 샘플을 읽기 시작하는 위치
 
         for time in range(time_size):
             for i, offset in enumerate(offsets):
@@ -102,23 +105,23 @@ class RnnlmTrainer:
         start_time = time.time()
         for epoch in range(max_epoch):
             for iters in range(max_iters):
-                batch_x, batch_t = self.get_batch(xs, ts, batch_size, time_size)
+                batch_x, batch_t = self.get_batch(xs, ts, batch_size, time_size)  # 미니배치 순차적으로 만들기
 
-                # 勾配を求め、パラメータを更新
-                loss = model.forward(batch_x, batch_t)
-                model.backward()
-                params, grads = remove_duplicate(model.params, model.grads)  # 共有された重みを1つに集約
+                # 기울기를 구해 매개변수 갱신
+                loss = model.forward(batch_x, batch_t)  # 순전파 호출
+                model.backward()  # 역전파 호출
+                params, grads = remove_duplicate(model.params, model.grads)  # 공유된 가중치를 하나로 모음
                 if max_grad is not None:
                     clip_grads(grads, max_grad)
-                optimizer.update(params, grads)
+                optimizer.update(params, grads)  # 옵티마이저로 가중치 갱신
                 total_loss += loss
                 loss_count += 1
 
-                # パープレキシティの評価
+                # 퍼플렉서티 평가
                 if (eval_interval is not None) and (iters % eval_interval) == 0:
                     ppl = np.exp(total_loss / loss_count)
                     elapsed_time = time.time() - start_time
-                    print('| epoch %d |  iter %d / %d | time %d[s] | perplexity %.2f'
+                    print('| 에폭 %d |  반복 %d / %d | 시간 %d[s] | 퍼플렉서티 %.2f'
                           % (self.current_epoch + 1, iters + 1, max_iters, elapsed_time, ppl))
                     self.ppl_list.append(float(ppl))
                     total_loss, loss_count = 0, 0
@@ -126,18 +129,19 @@ class RnnlmTrainer:
             self.current_epoch += 1
 
     def plot(self, ylim=None):
-        x = np.arange(len(self.ppl_list))
+        x = numpy.arange(len(self.ppl_list))
         if ylim is not None:
             plt.ylim(*ylim)
         plt.plot(x, self.ppl_list, label='train')
-        plt.xlabel('iterations (x' + str(self.eval_interval) + ')')
-        plt.ylabel('perplexity')
+        plt.xlabel('반복 (x' + str(self.eval_interval) + ')')
+        plt.ylabel('퍼플렉서티')
         plt.show()
+
 
 def remove_duplicate(params, grads):
     '''
-    パラメータ配列中の重複する重みをひとつに集約し、
-    その重みに対応する勾配を加算する
+    매개변수 배열 중 중복되는 가중치를 하나로 모아
+    그 가중치에 대응하는 기울기를 더한다.
     '''
     params, grads = params[:], grads[:]  # copy list
 
@@ -147,15 +151,15 @@ def remove_duplicate(params, grads):
 
         for i in range(0, L - 1):
             for j in range(i + 1, L):
-                # 重みを共有する場合
+                # 가중치 공유 시
                 if params[i] is params[j]:
-                    grads[i] += grads[j]  # 勾配の加算
+                    grads[i] += grads[j]  # 경사를 더함
                     find_flg = True
                     params.pop(j)
                     grads.pop(j)
-                # 転置行列として重みを共有する場合（weight tying）
+                # 가중치를 전치행렬로 공유하는 경우(weight tying)
                 elif params[i].ndim == 2 and params[j].ndim == 2 and \
-                     params[i].T.shape == params[j].shape and np.all(params[i].T == params[j]):
+                        params[i].T.shape == params[j].shape and np.all(params[i].T == params[j]):
                     grads[i] += grads[j].T
                     find_flg = True
                     params.pop(j)
