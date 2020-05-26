@@ -129,7 +129,7 @@ class RnnlmTrainer:
             self.current_epoch += 1
 
     def plot(self, ylim=None):
-        x = numpy.arange(len(self.ppl_list))
+        x = np.arange(len(self.ppl_list))
         if ylim is not None:
             plt.ylim(*ylim)
         plt.plot(x, self.ppl_list, label='train')
