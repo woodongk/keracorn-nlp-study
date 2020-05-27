@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 # 말뭉치 단어 별로 아이디로 변환해주는 함수
 def preprocess(text):
