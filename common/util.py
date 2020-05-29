@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+import os
 
 # 말뭉치 단어 별로 아이디로 변환해주는 함수
 def preprocess(text):
@@ -249,3 +250,51 @@ def eval_perplexity(model, corpus, batch_size=10, time_size=35):
     print('')
     ppl = np.exp(total_loss / max_iters)
     return ppl
+
+def eval_seq2seq(model, question, correct, id_to_char,
+                 verbose=False, is_reverse=False):
+
+    '''
+
+    :param model: 모델
+    :param question: 문제 문장 ( 문제 ID 배열 )
+    :param correct: 정답 문장 ( 정답 ID 배열 )
+    :param id_to_char:
+    :param verbose: 결과 출력 여부
+    :param is_reverse: 입력문 반전 여부
+    '''
+
+    correct = correct.flatten()
+    # 머릿글자
+    start_id = correct[0]
+    correct = correct[1:]
+    guess = model.generate(question, start_id, len(correct))
+
+    # 문자열로 변환
+    question = ''.join([id_to_char[int(c)] for c in question.flatten()])
+    correct = ''.join([id_to_char[int(c)] for c in correct])
+    guess = ''.join([id_to_char[int(c)] for c in guess])
+
+    if verbose:
+        if is_reverse:
+            question = question[::-1]
+
+        colors = {'ok': '\033[92m', 'fail': '\033[91m', 'close': '\033[0m'}
+        print('Q', question)
+        print('T', correct)
+
+        is_windows = os.name == 'nt'
+
+        if correct == guess:
+            mark = colors['ok'] + '☑' + colors['close']
+            if is_windows:
+                mark = 'O'
+            print(mark + ' ' + guess)
+        else:
+            mark = colors['fail'] + '☒' + colors['close']
+            if is_windows:
+                mark = 'X'
+            print(mark + ' ' + guess)
+        print('---')
+
+    return 1 if guess == correct else 0
