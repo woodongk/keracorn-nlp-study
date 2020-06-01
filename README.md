@@ -10,9 +10,6 @@
 
 ![cover](Bookcover.png)
 
-<img src = "Bookcover.png" width="500">
-
-
 ## 목차
 
 |   | Chapter                   | 개인 진도   | 발제 |
