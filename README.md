@@ -1,7 +1,7 @@
 # Deep Learning from Scratch2
 **『밑바닥부터 시작하는 딥러닝 ❷』(한빛미디어, 2019)**
 
-> [저자 Github](https://github.com/oreilly-japan/deep-learning-from-scratch-20)   
+> [저자 Github](https://github.com/oreilly-japan/deep-learning-from-scratch-2)   
 > [번역본 Github](https://github.com/WegraLee/deep-learning-from-scratch-2)
 
 > 스터디 시작일자 : 2019.12.15
@@ -18,7 +18,7 @@
 | 2 | 자연어와 단어의 분산 표현       | 19.12.27 |  백승주  |
 | 3 | word2vec                  | 20.1.7   | 김우정  |
 | 4 | word2vec 속도 개선          | 20.2.22  |  조원익  |
-| - | 휴식기.. 코로나..             |20.3-4|  😑   |
+| - | 휴식기.. 코로나..             |20.3-4     |  😑   |
 | 5 | 순환 신경망 (RNN)            | 20.5.19  |  운봉영  |
 | 6 | 게이트가 추가된 RNN           | 20.5.27  | 김희아   |
 | 7 | RNN을 사용한 문장 생성        | 20.5.30  |  백승주  |
