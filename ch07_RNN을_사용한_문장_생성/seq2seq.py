@@ -4,6 +4,7 @@ sys.path.append("..")
 from common.time_layers import *
 from common.base_model import BaseModel
 
+
 class Encoder:
     def __init__(self, vocab_size, wordvec_size, hidden_size):
         # 초기화

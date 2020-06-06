@@ -80,7 +80,7 @@ class PeekyDecoder:
         return sampled
 
 
-class PeekySeq2Seq(Seq2seq):
+class PeekySeq2seq(Seq2seq):
     def __init__(self, vocab_size, wordvec_size, hidden_size):
         V, D, H = vocab_size, wordvec_size, hidden_size
         self.encoder = Encoder(V, D, H)
