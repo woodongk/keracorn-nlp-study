@@ -4,10 +4,8 @@ sys.path.append('..')
 import os
 import numpy as np
 
-
 id_to_char = {}
 char_to_id = {}
-
 
 def _update_vocab(txt):
     chars = list(txt)

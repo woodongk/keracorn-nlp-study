@@ -137,7 +137,6 @@ class RnnlmTrainer:
         plt.ylabel('퍼플렉서티')
         plt.show()
 
-
 def remove_duplicate(params, grads):
     '''
     매개변수 배열 중 중복되는 가중치를 하나로 모아

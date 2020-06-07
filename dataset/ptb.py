@@ -1,4 +1,3 @@
-# coding: utf-8
 import sys
 import os
 sys.path.append('..')
@@ -8,7 +7,6 @@ except ImportError:
     raise ImportError('Use Python3!')
 import pickle
 import numpy as np
-
 
 url_base = 'https://raw.githubusercontent.com/tomsercu/lstm/master/data/'
 key_file = {
@@ -24,7 +22,6 @@ save_file = {
 vocab_file = 'ptb.vocab.pkl'
 
 dataset_dir = os.path.dirname(os.path.abspath(__file__))
-
 
 def _download(file_name):
     file_path = dataset_dir + '/' + file_name

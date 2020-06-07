@@ -6,4 +6,5 @@
 스터디 발제자료/*
 .ipynb_checkpoints/
 ch03/__pycache__/
+*/__pycache__/*
 ch06_게이트가_추가된_RNN/BetterRnnlm.pkl
