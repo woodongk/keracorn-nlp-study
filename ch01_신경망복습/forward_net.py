@@ -4,7 +4,6 @@ import numpy as np
 
 # 모든 계층은 forward 와 backward 메서드를 가진다.
 # 모든 계층은 인스턴트 변수인 params와 grads 를 가진다.
-
 # 매개변수 보관 장소. list params [], 하나의 리스트에 보관하면 매개변수 갱신과 매개변수 저장을 손쉽게 처리할 수 있다
 
 class Sigmoid: # 시그모이드 계층
@@ -15,8 +14,8 @@ class Sigmoid: # 시그모이드 계층
     def forward(self, x):
         return 1 / (1 + np.exp(-x))
 
-
-class Affine: # 완전 연결 계층
+# 완전 연결 계층
+class Affine: 
     def __init__(self,W,b):
 
         # 초기화 시에 가중치와 편향 받음
@@ -54,7 +53,6 @@ class TwolayerNet:
         for layer in self.layers:
             x = layer.forward(x)
         return x
-
 
 x = np.random.randn(10,2)
 model = TwolayerNet(2,4,3)

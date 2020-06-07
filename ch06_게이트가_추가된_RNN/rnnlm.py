@@ -1,9 +1,7 @@
 import sys
-
 sys.path.append("..")
 from common.time_layers import *
 import pickle
-
 
 class Rnnlm:
     def __init__(self, vocab_size=10000, wordvec_size=100, hidden_size=100):
@@ -33,7 +31,6 @@ class Rnnlm:
         for layer in self.layers:
             self.params += layer.params
             self.grads += layer.grads
-
 
     # 문장 생성
     def predict(self, xs):

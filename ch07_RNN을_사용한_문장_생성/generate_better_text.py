@@ -31,6 +31,7 @@ for x in start_ids[:-1]:
     x = np.array(x).reshape(1, 1)
     model.predict(x)  # shape = (1, 1, 10000)
 
+
 word_ids = model.generate(start_ids[-1], skip_ids)
 word_ids = start_ids[:-1] + word_ids
 txt = ' '.join([id_to_word[i] for i in word_ids])

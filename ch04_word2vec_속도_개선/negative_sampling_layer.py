@@ -30,7 +30,6 @@ class EmbeddingDot:
         dh = dout * target_W
         return dh
 
-
 class UnigramSampler:
     # 초기화 시에 3개의 인수를 받는다
     # 단어 ID 목록, 확률분포에 제곱할 값, 부정적 예시 샘플링할 개수
@@ -75,7 +74,6 @@ class UnigramSampler:
                                                replace=True, p=self.word_p)
 
         return negative_sample
-
 
 class NegativeSamplingLoss:
     # 출력 가중치 W, 말뭉치 ID 리스트, 확률분포에 제곱할 값, 샘플링 횟수

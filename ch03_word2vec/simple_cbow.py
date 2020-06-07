@@ -5,7 +5,8 @@ from common.layers import MatMul, SoftmaxWithLoss
 
 class SimpleCBOW:
     def __init__(self, vocab_size, hidden_size):
-        V, H = vocab_size, hidden_size  # 인수로 어휘 수와 은닉층의 뉴런 수를 받는다.
+        # 인수로 어휘 수와 은닉층의 뉴런 수를 받는다.
+        V, H = vocab_size, hidden_size
 
         # 가중치 초기화
         W_in = 0.01 * np.random.randn(V, H).astype('f')  # 32비트 부동소수점 수

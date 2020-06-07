@@ -5,7 +5,6 @@ from dataset import sequence
 import matplotlib.pyplot as plt
 from attention_seq2seq import AttentionSeq2seq
 
-
 (x_train, t_train), (x_test, t_test) = \
     sequence.load_data('date.txt')
 char_to_id, id_to_char = sequence.get_vocab()
@@ -35,7 +34,6 @@ def visualize(attention_map, row_labels, column_labels):
     global _idx
     _idx += 1
     plt.show()
-
 
 np.random.seed(1984)
 for _ in range(5):

@@ -47,4 +47,4 @@ class SimpleRnnlm:
 
     # 신경망의 상태 초기화 메서드
     def reset_state(self):
-        self.rnn_layer.reset_state()      
+        self.rnn_layer.reset_state()

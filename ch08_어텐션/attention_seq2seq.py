@@ -16,7 +16,6 @@ class AttentionEncoder(Encoder):
         dout = self.embed.backward(dout)
         return dout
 
-
 class AttentionDecoder:
     def __init__(self, vocab_size, wordvec_size, hidden_size):
         # 초기화

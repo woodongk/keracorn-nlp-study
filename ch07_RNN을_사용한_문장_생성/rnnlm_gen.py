@@ -1,11 +1,9 @@
 import sys
-
 sys.path.append("..")
 import numpy as np
 from common.functions import softmax
 from ch06_게이트가_추가된_RNN.rnnlm import Rnnlm
 from ch06_게이트가_추가된_RNN.better_rnnlm import BetterRnnlm
-
 
 class RnnlmGen(Rnnlm):
     # 문장 생성 수행. 100 단어까지

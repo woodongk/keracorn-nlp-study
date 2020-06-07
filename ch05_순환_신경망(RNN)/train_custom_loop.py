@@ -73,3 +73,7 @@ for epoch in range(max_epoch):
     ppl_list.append(float(ppl))
     total_loss, loss_count = 0, 0
     ########################################
+
+plt.figure(figsize=(7,5))
+sns.lineplot(list(range(100)),ppl_list)
+plt.show()

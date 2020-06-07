@@ -15,7 +15,8 @@ def clip_grads(grads, max_norm):
     if total_norm >= max_norm :
         for grad in grads:
             grad *= rate
-            
+
+
 display("clipping 전", grads)
 clip_grads(grads,max_norm)
 print()
